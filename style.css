@@ -1,0 +1,125 @@
+/* Palette: only rosewood, red and white */
+:root {
+  --rosewood: #A9606B;
+  --red: #D0112B;
+  --white: #FFFFFF;
+  --display: "Gloock", Georgia, "Times New Roman", serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: var(--rosewood);
+  color: var(--white);
+  font-family: var(--body);
+  overflow-x: hidden;
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+           env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 24px 40px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 13vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.question {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 40px;
+  max-width: 20ch;
+}
+
+/* Fixed height so the layout doesn't collapse when "No" starts moving */
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  min-height: 72px;
+  width: 100%;
+}
+
+.btn {
+  font: 700 1.2rem/1 var(--body);
+  min-width: 120px;
+  min-height: 56px;
+  padding: 0 28px;
+  border-radius: 999px;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.btn:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+
+.btn-yes { background: var(--red); color: var(--white); }
+.btn-yes:active { transform: scale(0.96); }
+
+.btn-no {
+  background: var(--white);
+  color: var(--red);
+  z-index: 5;
+}
+/* Once it starts running away it slides to its new spot */
+.btn-no.is-running {
+  position: fixed;
+  transition: left 0.35s ease, top 0.35s ease;
+}
+
+/* Result screen */
+.sticker {
+  width: min(70vw, 280px);
+  height: auto;
+  border: 6px solid var(--white);
+  border-radius: 28px;
+  background: var(--white);
+  margin-bottom: 28px;
+}
+
+.result-text {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+#result:not([hidden]) { animation: pop 0.5s ease-out; }
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-no.is-running { transition: none; }
+  #result:not([hidden]) { animation: none; }
+}
