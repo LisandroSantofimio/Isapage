@@ -1,13 +1,13 @@
 /* ====== EDIT THIS PART ====== */
 const CONFIG = {
-  title: "Aquí va tu título",
+  title: "El día dehoy es una representación del pasado 5 de octubre",
   question: "¿Quieres ser mi novia?",
   // Pon tu sticker en la carpeta media/. Escribe el nombre SIN la extensión;
   // la página prueba png, webp, gif, jpg y jpeg automáticamente.
   sticker: "media/my_sticker",
   yesText: "¡Sí! Me hiciste la persona más feliz.",
   noText: "¿Estás segura?",
-  finalText: "No, ¡por fin es un sí! Sabemos que lo amas.",
+  finalText: "No, ¡Un no es un si, no puedes mentirte a ti misma! Sabemos que tu me amas.",
   noClicksNeeded: 5,
 };
 /* ============================ */
