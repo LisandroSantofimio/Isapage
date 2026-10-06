@@ -1,13 +1,13 @@
 /* ====== EDIT THIS PART ====== */
 const CONFIG = {
-  title: "Your title here",
-  question: "Will you be my girlfriend?",
-  // Put your sticker in the media/ folder. Write the name WITHOUT the extension;
-  // the page tries png, webp, gif, jpg and jpeg on its own.
+  title: "Aquí va tu título",
+  question: "¿Quieres ser mi novia?",
+  // Pon tu sticker en la carpeta media/. Escribe el nombre SIN la extensión;
+  // la página prueba png, webp, gif, jpg y jpeg automáticamente.
   sticker: "media/my_sticker",
-  yesText: "Yes! You just made me the happiest person.",
-  noText: "Are you sure?",
-  finalText: "No, it is finally a yes, we know that you love him!",
+  yesText: "¡Sí! Me hiciste la persona más feliz.",
+  noText: "¿Estás segura?",
+  finalText: "No, ¡por fin es un sí! Sabemos que lo amas.",
   noClicksNeeded: 5,
 };
 /* ============================ */
